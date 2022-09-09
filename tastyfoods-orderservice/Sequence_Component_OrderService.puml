@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+Actor Customer as Customer
+
+Customer --> API_Gateway: Authentication Request
+API_Gateway --> Customer: Authentication Response
+API_Gateway --> OrderService: Order_Request
+OrderService --> PaymentService: Payment_Request
+PaymentService --> OrderService: Payment_Response
+OrderService --> DeliveryService: Delivery_Request
+DeliveryService --> OrderService: Delivery_Response
+OrderService --> API_Gateway: Order_Response
+Database Tasty_Restaurant as Database
+OrderService <--> Database: CRUD_Transactions
+
+@enduml

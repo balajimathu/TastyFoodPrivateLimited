@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+Actor Customer as Customer
+
+Customer --> API_Gateway: Authentication Request
+API_Gateway --> Customer: Authentication Response
+API_Gateway --> SearchService: Search_Request
+SearchService --> API_Gateway: Search_Response
+Database Tasty_Restaurant as Database
+SearchService <--> Database: DB_Search
+
+@enduml

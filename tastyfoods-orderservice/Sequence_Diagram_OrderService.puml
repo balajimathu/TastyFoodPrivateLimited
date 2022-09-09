@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+Actor Customer as Customer
+group OrderService [OrderService]
+
+Customer -> OrderController: CreateOrderRequest
+OrderController -> OrderService: CreateOrderRequest
+OrderService -> OrderDAO: CreateOrderRequest
+
+OrderDAO -> OrderService : CreateOrderResponse
+OrderService -> OrderController : CreateOrderResponse
+OrderController ->  Customer: CreateOrderResponse
+end
+
+OrderService -> PaymentAPIController : InitiatePayment
+PaymentAPIController -> OrderService : PaymentResponse
+
+group PaymentService [PaymentService]
+PaymentAPIController <--> Payment_Services : Payment
+end
+
+OrderService --> DeliveryAPIController : DeliveryRequest
+DeliveryAPIController --> OrderService : DeliveryResponse
+group DeliveryService [DeliveryService]
+DeliveryAPIController <--> Delivery_Services : DeliveryProcess
+end
+
+
+@enduml

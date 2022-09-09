@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Restaurant {
+    long id
+    String name
+}
+
+class Address{
+    String postalCode
+    String city
+    String address
+}
+
+Restaurant "1..1" - "1..1" Address
+
+class Customer
+class MenuItem
+
+@enduml

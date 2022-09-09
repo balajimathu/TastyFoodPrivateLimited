@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+note "This note is connected\nto several objects." as N2
+
+@startuml
+left to right direction
+actor Customer as Customer
+
+package SearchService {
+  usecase "Search Restaurant By Location" as UC1
+  usecase "Search Restaurant By Distance" as UC2
+  usecase "Search Restaurant By Cuisine" as UC3
+  usecase "Search Restaurant By Budget" as UC4
+  usecase "Search Restaurant By Name" as UC5
+  usecase "Get Menu Of Restaurant" as UC6
+}
+Customer --> UC1
+Customer --> UC2
+Customer --> UC3
+Customer --> UC4
+Customer --> UC5
+Customer --> UC6
+@enduml
+
+@enduml

@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+note "This note is connected\nto several objects." as N2
+
+@startuml
+left to right direction
+actor Customer as Customer
+
+package OrderService {
+  usecase "Place Order" as UC1
+  usecase "Update Order" as UC2
+  usecase "Cancel Order" as UC3
+  usecase "View Order" as UC4
+  usecase "Get Price Details" as UC5
+
+}
+
+package Order_Service_PlaceOrder {
+
+    usecase "Save Order" as UC1_1
+    usecase "Make Payment For Order" as UC1_2
+    usecase "Update Payment Details" as UC1_3
+    usecase "Update Stock After Payment" as UC1_3
+    usecase "Initiate Delivery" as UC1_4
+
+  usecase "Update Order" as UC2
+  usecase "Cancel Order" as UC3
+  usecase "View Order" as UC4
+  usecase "Get Order Details" as UC5
+
+}
+
+Customer --> UC1
+Customer --> UC2
+Customer --> UC3
+Customer --> UC4
+Customer --> UC5
+
+UC1 --> UC1_1
+Customer --> UC1_2
+UC1_2 --> UC1_3
+UC1_3 --> UC1_4
+
+@enduml
+
+@enduml
