@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "c98e2cc2-15cc-46a5-87b1-efc3ec432344",
+		"name": "TastyFoods_Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19744550"
+	},
+	"item": [
+		{
+			"name": "SearchByLocation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/search/location/Bangalore",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"search",
+						"location",
+						"Bangalore"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchByCuisine",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/search/cuisine/ITALIAN",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"search",
+						"cuisine",
+						"ITALIAN"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchByBudget",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/search/budget/250.00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"search",
+						"budget",
+						"250.00"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/search/name/Tasty_MysoreRoad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"search",
+						"name",
+						"Tasty_MysoreRoad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchByDistance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/search/distance/40.143990/2.994329",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"search",
+						"distance",
+						"40.143990",
+						"2.994329"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
