@@ -111,6 +111,158 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GetMenuItem",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/search/distance/40.143990/2.994329",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"search",
+						"distance",
+						"40.143990",
+						"2.994329"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order-PlaceFoodOrder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerId\": 1002,\r\n  \"restaurantId\": 2,\r\n  \"foodOrderItems\": [\r\n    {\r\n      \"menuItemId\": 1,\r\n      \"name\": \"IDLY\",\r\n      \"quantity\": 1\r\n    },\r\n    {\r\n      \"menuItemId\": 3,\r\n       \"name\": \"VADA\",\r\n      \"quantity\": 1\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/order/place",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"order",
+						"place"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order-UpdateFoodOrder",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerId\": 1002,\r\n  \"restaurantId\": 2,\r\n  \"foodOrderItems\": [\r\n    {\r\n      \"menuItemId\": 1,\r\n      \"quantity\": 2\r\n    },\r\n    {\r\n      \"menuItemId\": 3,\r\n      \"quantity\": 2\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/order/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"order",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order-viewOrder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/order/view/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"order",
+						"view",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order-cancelOrder",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/order/cancel/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"order",
+						"cancel",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order-getPrice",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerId\": 1002,\r\n  \"restaurantId\": 2,\r\n  \"foodOrderItems\": [\r\n    {\r\n      \"menuItemId\": 1,\r\n      \"name\": \"IDLY\",\r\n      \"quantity\": 5\r\n    },\r\n    {\r\n      \"menuItemId\": 3,\r\n       \"name\": \"VADA\",\r\n      \"quantity\": 5\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/order/getPrice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"order",
+						"getPrice"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
