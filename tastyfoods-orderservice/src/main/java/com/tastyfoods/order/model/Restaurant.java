@@ -1,4 +1,4 @@
-package com.tastyfoods.search.model;
+package com.tastyfoods.order.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

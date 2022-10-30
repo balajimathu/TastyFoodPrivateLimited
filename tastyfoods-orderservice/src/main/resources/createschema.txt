@@ -1,0 +1,80 @@
+CREATE TABLE CUISINE (
+  id          INTEGER PRIMARY KEY,
+  name        VARCHAR(30) NOT NULL,
+  created_date DATE NOT NULL,
+  updated_date DATE NOT NULL);
+
+CREATE TABLE restaurant (
+  id          INTEGER PRIMARY KEY,
+  branch_id   INTEGER NOT NULL,
+  city VARCHAR(30) NOT NULL,
+  name VARCHAR(30) NOT NULL,
+  pincode VARCHAR(6) NOT NULL,
+  address VARCHAR(60) NOT NULL,
+  latitude DOUBLE NOT NULL,
+  longitude DOUBLE NOT NULL,
+  phone_number VARCHAR(10) NOT NULL,
+  open_hours VARCHAR(30) NOT NULL,
+  budget  INTEGER NOT NULL,
+  created_date DATE NOT NULL,
+  updated_date DATE NOT NULL);
+
+CREATE TABLE menu_item (
+  id          INTEGER PRIMARY KEY,
+  name VARCHAR(30) NOT NULL,
+  price  DOUBLE NOT NULL,
+  veg BOOLEAN NOT NULL,
+  created_date DATE NOT NULL,
+  updated_date DATE NOT NULL );
+
+
+CREATE TABLE address (
+  id  INTEGER PRIMARY KEY,
+  addressLineOne VARCHAR(30) NOT NULL,
+  addressLineTwo VARCHAR(30) NOT NULL,
+  city  VARCHAR(30) NOT NULL,
+  landmark  VARCHAR(30) NOT NULL,
+  postalCode INTEGER NOT NULL,
+  created_date DATE NOT NULL,
+  updated_date DATE NOT NULL );
+
+CREATE TABLE customer (
+  id  INTEGER PRIMARY KEY,
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
+  phone_number  VARCHAR(30) NOT NULL,
+  mail_id  VARCHAR(30) NOT NULL,
+  address_id  INTEGER FOREIGN KEY REFERENCES address(id),
+  created_date DATE NOT NULL,
+  updated_date DATE NOT NULL );
+
+CREATE TABLE restaurant_menuitem (
+  restaurant_id INTEGER FOREIGN KEY REFERENCES restaurant(id),
+  menu_item_id INTEGER FOREIGN KEY REFERENCES menu_item(id) );
+
+CREATE TABLE foodOrder (
+  id INTEGER PRIMARY KEY,
+  restaurant_id INTEGER FOREIGN KEY REFERENCES restaurant(id),
+  customer_id INTEGER FOREIGN KEY REFERENCES customer(id),
+  price DOUBLE,
+  status VARCHAR(15),
+  created_date DATE NOT NULL,
+  updated_date DATE NOT NULL );
+
+
+CREATE TABLE foodOrder_item (
+  id INTEGER PRIMARY KEY,
+  foodOrder_id INTEGER FOREIGN KEY REFERENCES foorOrder(id),
+  menu_item_id INTEGER FOREIGN KEY REFERENCES menu_item(id),
+  quantity INTEGER NOT NULL,
+  created_date DATE NOT NULL,
+  updated_date DATE NOT NULL );
+
+
+CREATE TABLE order_menuitem (
+    order_id INTEGER FOREIGN KEY REFERENCES foodOrder(id),
+    menu_item_id INTEGER FOREIGN KEY REFERENCES menu_item(id) );
+
+CREATE TABLE restaurant_cuisine (
+  restaurant_id INTEGER FOREIGN KEY REFERENCES restaurant(id),
+  cuisine_id INTEGER FOREIGN KEY REFERENCES cuisine(id) );

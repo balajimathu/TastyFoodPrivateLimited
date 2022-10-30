@@ -1,47 +1,49 @@
 package com.tastyfoods.order.controller;
 
 
-import com.tastyfoods.order.model.Order;
-import com.tastyfoods.order.model.OrderRequest;
+import com.tastyfoods.order.dto.OrderRequest;
+import com.tastyfoods.order.dto.OrderResponse;
 import com.tastyfoods.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/order")
 public class OrderController {
 
     @Autowired
-    OrderService orOrderService ;
+    OrderService orderService;
 
     @PostMapping("/place")
-    public Order placeOrder(@RequestBody OrderRequest orderRequest){
+    public OrderResponse placeOrder(@Valid @RequestBody OrderRequest orderRequest) {
 
-        return Order.builder().build();
+        return orderService.placeOrder(orderRequest);
     }
 
-    @PutMapping("/update")
-    public Order updateOrder(@RequestBody OrderRequest orderRequest){
+    @PutMapping("/update/{orderId}")
+    public OrderResponse updateOrder(@Valid @PathVariable long orderId, @Valid @RequestBody OrderRequest orderRequest) {
 
-        return Order.builder().build();
+        return orderService.updateOrder(orderId, orderRequest);
     }
 
-    @DeleteMapping("/cancel")
-    public Order cancelOrder(@RequestBody OrderRequest orderRequest){
+    @DeleteMapping("/cancel/{orderId}")
+    public OrderResponse cancelOrder(@Valid @PathVariable long orderId) {
 
-        return Order.builder().build();
+        return orderService.cancelOrder(orderId);
     }
 
-    @GetMapping("/view")
-    public Order getOrder(@PathVariable long id){
+    @GetMapping("/view/{orderId}")
+    public OrderResponse getOrder(@Valid @PathVariable long orderId) {
 
-        return Order.builder().build();
+        return orderService.getOrder(orderId);
     }
 
     @PostMapping("/getPrice")
-    public Order getOrder(@RequestBody OrderRequest orderRequest){
+    public OrderResponse getPriceForOrder(@Valid @RequestBody OrderRequest orderRequest) {
 
-        return Order.builder().build();
+        return orderService.getPrice(orderRequest);
     }
 
 }
